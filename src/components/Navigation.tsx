@@ -57,10 +57,12 @@ export const Navigation: React.FC<NavigationProps> = ({
       >
         <div className="flex">
           <ChevronLeft
-            className={`text-[#027056] ${isCollapsed ? "rotate-180" : ""}`}
+            className={`text-[#027056] w-5 h-5 ${
+              isCollapsed ? "rotate-180" : ""
+            }`}
           />
           <ChevronLeft
-            className={`-ml-4 text-[#027056] ${
+            className={`-ml-3.5 w-5 h-5 text-[#027056] ${
               isCollapsed ? "rotate-180" : ""
             }`}
           />

@@ -99,7 +99,7 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
   }, []);
 
   return (
-    <div className="bg-gray-100 rounded-xl py-2">
+    <div className="bg-[#F8F8F8] rounded-xl py-2">
       <div className="flex justify-between items-center mb-6 p-6">
         <div>
           <h2 className="text-[20px] font-bold font-mulish text-[#031B15] tracking-[-3%] leading-[1.2]">

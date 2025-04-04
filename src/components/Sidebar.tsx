@@ -1,14 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Navigation } from "./Navigation";
-import {
-  CircleHelp,
-  PlusIcon,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react";
+import { CircleHelp, PlusIcon, ChevronDown, ChevronUp } from "lucide-react";
 import { Settings } from "lucide-react";
 import { cn } from "@/utils/cn";
 
@@ -23,6 +18,26 @@ export const Sidebar: React.FC<SidebarProps> = ({ userInitials = "SS" }) => {
     setIsCollapsed((prev) => !prev);
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 920) {
+        setIsCollapsed(true);
+      } else {
+        setIsCollapsed(false);
+      }
+    };
+
+    if (window && window.innerWidth < 920) {
+      setIsCollapsed(true);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const [isChannelsOpen, setIsChannelsOpen] = useState(true);
   const toggleChannels = () => {
     setIsChannelsOpen(!isChannelsOpen);
@@ -31,7 +46,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ userInitials = "SS" }) => {
   return (
     <aside
       className={`transition-all duration-300 ${
-        isCollapsed ? "w-[51px]" : "w-[280px]"
+        isCollapsed ? "w-[60px]" : "w-[280px]"
       }`}
     >
       <Navigation isCollapsed={isCollapsed} onCollapse={handleCollapse} />
@@ -69,7 +84,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ userInitials = "SS" }) => {
           {/* Bottom section with user icons */}
           <div className="p-4 flex flex-col gap-4 items-center">
             {/* Users icon */}
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <svg
+              className="cursor-pointer"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
               <path
                 d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21"
                 stroke="#7E8986"
@@ -101,7 +122,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ userInitials = "SS" }) => {
             </svg>
 
             {/* User avatar */}
-            <div className="w-7 h-7 rounded-full bg-[#9106FF] border border-white/10 flex items-center justify-center">
+            <div className="w-7 h-7 cursor-pointer rounded-full bg-[#9106FF] border border-white/10 flex items-center justify-center">
               <span className="font-mulish text-xs font-semibold text-white">
                 {userInitials}
               </span>
@@ -111,7 +132,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ userInitials = "SS" }) => {
 
         <div
           className={cn(
-            "py-2 bg-gray-100 flex gap-1 flex-col items-start w-full px-2",
+            "py-2 bg-[#F8F8F8] flex gap-1 flex-col items-start w-full px-2",
             isCollapsed ? "hidden" : ""
           )}
         >
