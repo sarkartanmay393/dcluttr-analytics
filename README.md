@@ -1,6 +1,6 @@
 # Dclutter Analytics
 
-<!-- <img src="/public/logo.jpeg" alt="Dclutter Analytics" width="128" height="128"> -->
+<img src="/public/logo.svg" alt="Dclutter Analytics" width="128" height="128">
 
 Dclutter Analytics provides real-time, AI data-driven insights of Companies.
 

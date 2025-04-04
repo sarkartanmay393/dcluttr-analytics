@@ -42,36 +42,12 @@ const Dashboard = () => {
     setIsToggled(!isToggled);
   };
 
-  const [brands, setBrands] = useState<BrandTab[]>([
-    { name: "Blinkit", logo: "/images/blinkit-logo.png", active: true },
-    { name: "Zepto", logo: "/images/zepto-logo.png", active: false },
-    { name: "Instamart", logo: "/images/instamart-logo.png", active: false },
-  ]);
-
-  // State for chart toggle
-  const [isChartEnabled, setIsChartEnabled] = useState(true);
-
   // State for date range dropdown
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
-  const [dateRange, setDateRange] = useState<DateRange>({
+  const [dateRange, setDateRange] = useState({
     start: new Date(2024, 7, 1), // August 1, 2024
     end: new Date(2024, 7, 3), // August 3, 2024
   });
-
-  // Handle brand selection
-  const handleBrandClick = (selectedName: string) => {
-    setBrands(
-      brands.map((brand) => ({
-        ...brand,
-        active: brand.name === selectedName,
-      }))
-    );
-  };
-
-  // Handle chart toggle
-  const handleChartToggle = () => {
-    setIsChartEnabled(!isChartEnabled);
-  };
 
   // Format date for display
   const formatDate = (date: Date): string => {
