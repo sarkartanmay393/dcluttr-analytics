@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import SalesChart from "./SalesChart";
 import { CalendarDays, ChartLine, ChevronDown } from "lucide-react";
-import PieChartComponent from "./PieChartComponent.jsx";
-import BrandTogglers from "./BrandTogglers.jsx";
-import SKUDataTable from "./Table.jsx";
+import PieChartComponent from "./PieChartComponent";
+import BrandTogglers from "./BrandTogglers";
+import SKUDataTable from "./Table";
 
 const Dashboard = () => {
   const [isToggled, setIsToggled] = useState(true);
@@ -23,17 +23,17 @@ const Dashboard = () => {
     SKU4: false,
   });
 
-  const handleSKUCheckboxChange = (skuName) => {
+  const handleSKUCheckboxChange = (skuName: string | number) => {
     setSelectedSKUs((prev) => ({
       ...prev,
-      [skuName]: !prev[skuName],
+      [skuName as keyof typeof prev]: !prev[skuName as keyof typeof prev],
     }));
   };
 
-  const handleCityCheckboxChange = (cityName) => {
+  const handleCityCheckboxChange = (cityName: string | number) => {
     setSelectedCities((prev) => ({
       ...prev,
-      [cityName]: !prev[cityName],
+      [cityName as keyof typeof prev]: !prev[cityName as keyof typeof prev],
     }));
   };
 

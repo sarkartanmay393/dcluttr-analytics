@@ -5,14 +5,11 @@ import Image from "next/image";
 import { Navigation } from "./Navigation";
 import {
   CircleHelp,
-  Images,
   PlusIcon,
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
 import { Settings } from "lucide-react";
-import { Tv } from "lucide-react";
-import { House } from "lucide-react";
 import { cn } from "@/utils/cn";
 
 interface SidebarProps {

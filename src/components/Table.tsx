@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from "react";
 import { ChartLine, ChevronDown } from "lucide-react";
 import { fetchCubeData } from "../utils/cube";
 
-const SKUDataTable = ({ title, selectedItems, onCheckboxChange }) => {
+const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
   const [data, setData] = useState([]);
   const [total, setTotal] = useState({
     sales: "₹0",

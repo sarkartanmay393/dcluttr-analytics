@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const BrandTogglers = () => {
   const [activeButton, setActiveButton] = useState("Blinkit");
-  const handleButtonClick = (buttonName) => {
+  const handleButtonClick = (buttonName: React.SetStateAction<string>) => {
     setActiveButton(buttonName);
   };
 
