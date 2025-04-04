@@ -64,12 +64,15 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }) => {
           response.results[0].data.reduce(
             (sum, item) =>
               sum +
-              Number(item["blinkit_scraping_stream.on_shelf_availability"] || 0),
+              Number(
+                item["blinkit_scraping_stream.on_shelf_availability"] || 0
+              ),
             0
           ) / (response.results[0].data.length || 1)
         ).toFixed(2)}%`,
         totalInventory: response.results[0].data.reduce(
-          (sum, item) => sum + Number(item["blinkit_insights_sku.inv_qty"] || 0),
+          (sum, item) =>
+            sum + Number(item["blinkit_insights_sku.inv_qty"] || 0),
           0
         ),
         avgRank: (
@@ -128,7 +131,11 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }) => {
             <tr className="border-b border-[#F1F1F1] bg-white">
               <th className="py-4 px-3 font-semibold border-r border-[#F1F1F1]">
                 <div className="flex items-center gap-2">
-                  <ChartLine size={16} className="text-[#031B15]" strokeWidth={1.5} />
+                  <ChartLine
+                    size={16}
+                    className="text-[#031B15]"
+                    strokeWidth={1.5}
+                  />
                   <span className="text-[15px] text-[#013025] font-mulish font-semibold leading-[1.067] tracking-[-0.133%]">
                     {title.split(" ")[0]} Name
                   </span>
@@ -139,7 +146,11 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }) => {
                   <span className="text-[15px] text-[#013025] font-mulish font-semibold leading-[1.067] tracking-[-0.133%]">
                     Sales
                   </span>
-                  <ChevronDown size={16} className="text-[#031B15]" strokeWidth={1.5} />
+                  <ChevronDown
+                    size={16}
+                    className="text-[#031B15]"
+                    strokeWidth={1.5}
+                  />
                 </div>
               </th>
               <th className="py-4 px-4 font-semibold">
@@ -147,7 +158,11 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }) => {
                   <span className="text-[15px] text-[#013025] font-mulish font-semibold leading-[1.067] tracking-[-0.133%]">
                     Out of Stock
                   </span>
-                  <ChevronDown size={16} className="text-[#031B15]" strokeWidth={1.5} />
+                  <ChevronDown
+                    size={16}
+                    className="text-[#031B15]"
+                    strokeWidth={1.5}
+                  />
                 </div>
               </th>
               <th className="py-4 px-4 font-semibold border-r border-[#F1F1F1]">
@@ -155,7 +170,11 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }) => {
                   <span className="text-[15px] text-[#013025] font-mulish font-semibold leading-[1.067] tracking-[-0.133%]">
                     Total Inventory
                   </span>
-                  <ChevronDown size={16} className="text-[#031B15]" strokeWidth={1.5} />
+                  <ChevronDown
+                    size={16}
+                    className="text-[#031B15]"
+                    strokeWidth={1.5}
+                  />
                 </div>
               </th>
               <th className="py-4 px-4 font-semibold">
@@ -163,7 +182,11 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }) => {
                   <span className="text-[15px] text-[#013025] font-mulish font-semibold leading-[1.067] tracking-[-0.133%]">
                     Average Rank
                   </span>
-                  <ChevronDown size={16} className="text-[#031B15]" strokeWidth={1.5} />
+                  <ChevronDown
+                    size={16}
+                    className="text-[#031B15]"
+                    strokeWidth={1.5}
+                  />
                 </div>
               </th>
               <th className="py-4 px-4 font-semibold">
@@ -171,7 +194,11 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }) => {
                   <span className="text-[15px] text-[#013025] font-mulish font-semibold leading-[1.067] tracking-[-0.133%]">
                     Est. Traffic
                   </span>
-                  <ChevronDown size={16} className="text-[#031B15]" strokeWidth={1.5} />
+                  <ChevronDown
+                    size={16}
+                    className="text-[#031B15]"
+                    strokeWidth={1.5}
+                  />
                 </div>
               </th>
               <th className="py-4 px-4 font-semibold">
@@ -179,7 +206,11 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }) => {
                   <span className="text-[15px] text-[#013025] font-mulish font-semibold leading-[1.067] tracking-[-0.133%]">
                     Est. Impressions
                   </span>
-                  <ChevronDown size={16} className="text-[#031B15]" strokeWidth={1.5} />
+                  <ChevronDown
+                    size={16}
+                    className="text-[#031B15]"
+                    strokeWidth={1.5}
+                  />
                 </div>
               </th>
             </tr>
@@ -187,7 +218,10 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }) => {
           <tbody>
             {data.length === 0 ? (
               <tr>
-                <td colSpan="7" className="py-4 text-center text-[#4E5E5A] font-mulish">
+                <td
+                  colSpan="7"
+                  className="py-4 text-center text-[#4E5E5A] font-mulish"
+                >
                   Loading data...
                 </td>
               </tr>
