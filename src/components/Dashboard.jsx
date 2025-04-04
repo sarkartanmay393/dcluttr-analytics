@@ -4,12 +4,6 @@ import React, { useState } from "react";
 import SalesChart from "./SalesChart";
 import { CalendarDays, ChartLine, ChevronDown } from "lucide-react";
 import PieChartComponent from "./PieChartComponent.jsx";
-import {
-  cityLevelData,
-  cityTotal,
-  skuLevelData,
-  skuTotal,
-} from "../utils/sampleData.jsx";
 import BrandTogglers from "./BrandTogglers.jsx";
 import SKUDataTable from "./Table.jsx";
 
