@@ -136,7 +136,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ userInitials = "SS" }) => {
             isCollapsed ? "hidden" : ""
           )}
         >
-          <div className="w-full flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg cursor-pointer">
+          <div className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-200 rounded-lg cursor-pointer">
             {/* <House size={20} color="#7E8986" /> */}
             <svg
               width="20"
@@ -156,7 +156,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ userInitials = "SS" }) => {
           <div className="w-full">
             <div
               onClick={toggleChannels}
-              className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg cursor-pointer"
+              className="flex items-center gap-3 px-4 py-3  hover:bg-gray-200 rounded-lg cursor-pointer"
             >
               {/* <Tv size={20} color="#7E8986" /> */}
               <svg
@@ -181,10 +181,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ userInitials = "SS" }) => {
             </div>
             {isChannelsOpen && (
               <div className="pl-10 space-y-1">
-                <div className="px-4 py-2 text-gray-600 text-sm hover:bg-gray-200 rounded-lg cursor-pointer">
+                <div className="px-4 py-2  text-sm text-[#031B15] hover:bg-gray-200 rounded-lg cursor-pointer">
                   Meta Ads
                 </div>
-                <div className="px-4 py-2 text-gray-600 text-sm hover:bg-gray-200 rounded-lg cursor-pointer">
+                <div className="px-4 py-2 text-[#031B15] text-sm hover:bg-gray-200 rounded-lg cursor-pointer">
                   Google Ads
                 </div>
                 <div className="px-4 py-2 bg-blue-100 text-[#027056] font-medium text-sm rounded-lg cursor-pointer">
@@ -193,7 +193,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ userInitials = "SS" }) => {
               </div>
             )}
           </div>
-          <div className="w-full flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg cursor-pointer">
+          <div className="w-full flex items-center gap-3 px-4 py-3  hover:bg-gray-200 rounded-lg cursor-pointer">
             {/* <Images size={20} color="#7E8986" /> */}
             <svg
               width="20"
@@ -212,11 +212,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ userInitials = "SS" }) => {
           </div>
 
           <div className="space-y-1 mt-auto w-full">
-            <div className="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg cursor-pointer">
+            <div className="flex items-center gap-3 px-4 py-3  hover:bg-gray-200 rounded-lg cursor-pointer">
               <CircleHelp size={20} color="#7E8986" />
               <span className="text-sm">Help</span>
             </div>
-            <div className="w-full flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg cursor-pointer">
+            <div className="w-full flex items-center gap-3 px-4 py-3  hover:bg-gray-200 rounded-lg cursor-pointer">
               <Settings size={20} color="#7E8986" />
               <span className="text-sm">Settings</span>
             </div>

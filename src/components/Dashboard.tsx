@@ -6,6 +6,7 @@ import { CalendarDays, ChartLine, ChevronDown } from "lucide-react";
 import PieChartComponent from "./PieChartComponent";
 import BrandTogglers from "./BrandTogglers";
 import SKUDataTable from "./Table";
+import { cn } from "@/utils/cn";
 
 const Dashboard = () => {
   const [isToggled, setIsToggled] = useState(true);
@@ -98,7 +99,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="sm:m-4 flex flex-col border-[1px] border-[#D9D9D9] sm:rounded-[10px] bg-[#F8F8F8]">
+    <div className="transition-all duration-300 sm:m-4 flex flex-col border-[1px] border-[#D9D9D9] sm:rounded-[10px] bg-[#F8F8F8]">
       <div className="h-[64px] py-2 flex items-center flex-row border-b-[1px] border-[#D9D9D9] justify-between px-3 bg-white rounded-t-xl">
         <h2 className="text-lg font-medium text-[#031B15] text-[14px] pl-4">
           Quick Commerce
@@ -160,13 +161,16 @@ const Dashboard = () => {
       <div className="flex items-center flex-row border-b-[1px] h-[64px] border-[#D9D9D9] justify-between px-3 py-2 bg-white">
         <BrandTogglers />
       </div>
-      {isToggled && (
-        <div className="bg-[#F8F8F8] font-[mul lish] grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 border-b-1 border-[#D9D9D9] gap-4 p-4">
-          <SalesChart title="Sales (MRP)" />
-          <SalesChart title="Total Quantity Sold" />
-          <PieChartComponent />
-        </div>
-      )}
+      <div
+        className={cn(
+          "bg-[#F8F8F8] font-[mul lish] grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 border-b-1 border-[#D9D9D9] gap-4 p-4",
+          isToggled ? "" : "hidden"
+        )}
+      >
+        <SalesChart title="Sales (MRP)" />
+        <SalesChart title="Total Quantity Sold" />
+        <PieChartComponent />
+      </div>
       <SKUDataTable
         title="SKU Level Data"
         selectedItems={selectedSKUs}
