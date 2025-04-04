@@ -244,7 +244,7 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
                       type="checkbox"
                       checked={selectedItems[row["name"]] || false}
                       onChange={() => onCheckboxChange(row["name"])}
-                      className="w-4 h-4 rounded border-[#CDD1D0] text-[#027056] focus:ring-[#027056]"
+                      className="w-4 h-4 rounded-md border-[#CDD1D0] accent-[#027056] text-[#027056] focus:ring-[#027056] focus:ring-offset-0 focus:ring-1 checked:bg-[#027056] checked:hover:bg-[#027056] checked:border-[#027056] cursor-pointer"
                     />
                     <span className="text-[15px] text-[#0A090B] font-mulish font-semibold underline leading-[1.067] tracking-[-0.133%]">
                       {row["name"]}
