@@ -99,7 +99,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="transition-all duration-300 sm:m-4 flex flex-col border-[1px] border-[#D9D9D9] sm:rounded-[10px] bg-[#F8F8F8]">
+    <div className="transition-all duration-300 sm:m-4 flex flex-col border-[1px] border-[#D9D9D9] sm:rounded-[10px] bg-[#F8F8F8] pb-6">
       <div className="h-[64px] py-2 flex items-center flex-row border-b-[1px] border-[#D9D9D9] justify-between px-3 bg-white rounded-t-xl">
         <h2 className="text-lg font-medium text-[#031B15] text-[14px] pl-4">
           Quick Commerce

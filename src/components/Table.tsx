@@ -109,7 +109,7 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
             Analytics for all your {title.split(" ")[0].toLowerCase()}s
           </p>
         </div>
-        <button className="flex items-center gap-2 px-3 py-2.5 bg-[#027056] border border-[#D9D9D9] rounded-[10px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.04)]">
+        <button className="cursor-pointer flex items-center gap-2 px-3 py-2.5 bg-[#027056] border border-[#D9D9D9] rounded-[10px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.04)]">
           <span className="text-[14px] font-medium text-white font-mulish leading-[1.429]">
             Filters(1)
           </span>
@@ -119,9 +119,20 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
 
       <div className="overflow-x-auto rounded-xl mx-6">
         <table className="bg-white w-full text-sm text-left border border-[#F1F1F1] rounded-xl">
-          <thead>
+          <thead className="text-nowrap ">
             <tr className="border-b border-[#F1F1F1]">
-              <th className="py-3 px-4 w-[250px]"></th>
+              <th rowSpan={2} className="py-3 px-4 w-[250px]">
+                <div className="flex items-center gap-2">
+                  <ChartLine
+                    size={16}
+                    className="text-[#031B15]"
+                    strokeWidth={1.5}
+                  />
+                  <span className="text-[15px] text-[#013025] font-mulish font-semibold leading-[1.067] tracking-[-0.133%]">
+                    {title.split(" ")[0]} Name
+                  </span>
+                </div>
+              </th>
               <th
                 colSpan={3}
                 className="py-3 px-4 font-bold text-[15px] text-[#013025] text-center border-x border-[#F1F1F1] font-mulish leading-[1.2] tracking-[-0.133%]"
@@ -136,19 +147,7 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
               </th>
             </tr>
             <tr className="border-b border-[#F1F1F1] bg-white">
-              <th className="py-4 px-3 font-semibold border-r border-[#F1F1F1]">
-                <div className="flex items-center gap-2">
-                  <ChartLine
-                    size={16}
-                    className="text-[#031B15]"
-                    strokeWidth={1.5}
-                  />
-                  <span className="text-[15px] text-[#013025] font-mulish font-semibold leading-[1.067] tracking-[-0.133%]">
-                    {title.split(" ")[0]} Name
-                  </span>
-                </div>
-              </th>
-              <th className="py-4 px-4 font-semibold">
+              <th className="py-4 border-l border-[#F1F1F1] px-4 font-semibold">
                 <div className="flex items-center justify-center gap-2">
                   <span className="text-[15px] text-[#013025] font-mulish font-semibold leading-[1.067] tracking-[-0.133%]">
                     Sales
@@ -222,7 +221,7 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-nowrap">
             {data.length === 0 ? (
               <tr>
                 <td
