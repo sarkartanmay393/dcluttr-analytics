@@ -37,6 +37,7 @@ const SalesChart = ({ title = "Sales (MRP)" }) => {
         tension: 0,
         pointRadius: 0,
         borderWidth: 1,
+        pointBackgroundColor: "#1D874F",
       },
       {
         label: "Last Month",
@@ -47,7 +48,8 @@ const SalesChart = ({ title = "Sales (MRP)" }) => {
         fill: false,
         tension: 0,
         pointRadius: 0,
-        borderWidth: 1,
+        borderWidth: 0,
+        pointBackgroundColor: "#E25D33",
       },
     ],
   };
@@ -57,11 +59,11 @@ const SalesChart = ({ title = "Sales (MRP)" }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        // position: "bottom",
-        // align: "start",
+        position: "bottom" as const,
+        align: "start" as const,
         labels: {
           usePointStyle: true,
-          pointStyle: 'dot',
+          pointStyle: "dot",
           padding: 12,
           font: {
             family: "Mulish",
