@@ -37,33 +37,35 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
 
       const response = await fetchCubeData(query);
       // console.log("Cube.js response:=", response, "query=", query);
-      const mappedData = response?.results?.[0]?.data.map((item) => ({
-        name: item["blinkit_insights_sku.name"] || "Unknown",
-        sales: `₹${Number(
-          item["blinkit_insights_sku.sales_mrp_sum"] || 0
-        ).toLocaleString("en-IN", { maximumFractionDigits: 2 })}`,
-        outOfStock: `${Number(
-          item["blinkit_scraping_stream.on_shelf_availability"] || 0
-        ).toFixed(2)}%`,
-        totalInventory: item["blinkit_insights_sku.inv_qty"] || 0,
-        avgRank: Number(item["blinkit_scraping_stream.rank_avg"] || 0).toFixed(
-          1
-        ),
-        estTraffic: 0,
-        estImpressions: 0,
-      }));
+      const mappedData = response?.results?.[0]?.data.map(
+        (item: { [x: string]: any }) => ({
+          name: item["blinkit_insights_sku.name"] || "Unknown",
+          sales: `₹${Number(
+            item["blinkit_insights_sku.sales_mrp_sum"] || 0
+          ).toLocaleString("en-IN", { maximumFractionDigits: 2 })}`,
+          outOfStock: `${Number(
+            item["blinkit_scraping_stream.on_shelf_availability"] || 0
+          ).toFixed(2)}%`,
+          totalInventory: item["blinkit_insights_sku.inv_qty"] || 0,
+          avgRank: Number(
+            item["blinkit_scraping_stream.rank_avg"] || 0
+          ).toFixed(1),
+          estTraffic: 0,
+          estImpressions: 0,
+        })
+      );
       // console.log(mappedData);
       const calculatedTotal = {
         sales: `₹${response.results[0].data
           .reduce(
-            (sum, item) =>
+            (sum: number, item: { [x: string]: any }) =>
               sum + Number(item["blinkit_insights_sku.sales_mrp_sum"] || 0),
             0
           )
           .toLocaleString("en-IN", { maximumFractionDigits: 2 })}`,
         outOfStock: `${(
           response.results[0].data.reduce(
-            (sum, item) =>
+            (sum: number, item: { [x: string]: any }) =>
               sum +
               Number(
                 item["blinkit_scraping_stream.on_shelf_availability"] || 0
@@ -72,21 +74,25 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
           ) / (response.results[0].data.length || 1)
         ).toFixed(2)}%`,
         totalInventory: response.results[0].data.reduce(
-          (sum, item) =>
+          (sum: number, item: { [x: string]: any }) =>
             sum + Number(item["blinkit_insights_sku.inv_qty"] || 0),
           0
         ),
         avgRank: (
           response.results[0].data.reduce(
-            (sum, item) =>
+            (sum: number, item: { [x: string]: any }) =>
               sum + Number(item["blinkit_scraping_stream.rank_avg"] || 0),
             0
           ) / (response.results[0].data.length || 1)
         ).toFixed(1),
       };
-
       setData(mappedData);
-      setTotal(calculatedTotal);
+      setTotal({
+        ...calculatedTotal,
+        estTraffic: 0,
+        estImpressions: 0,
+        avgRank: Number(calculatedTotal.avgRank),
+      });
     };
 
     fetchData();
@@ -117,13 +123,13 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
             <tr className="border-b border-[#F1F1F1]">
               <th className="py-3 px-4 w-[250px]"></th>
               <th
-                colSpan="3"
+                colSpan={3}
                 className="py-3 px-4 font-bold text-[15px] text-[#013025] text-center border-x border-[#F1F1F1] font-mulish leading-[1.2] tracking-[-0.133%]"
               >
                 Availability
               </th>
               <th
-                colSpan="3"
+                colSpan={3}
                 className="py-3 px-4 font-bold text-[15px] text-[#013025] text-center font-mulish leading-[1.2] tracking-[-0.133%]"
               >
                 Visibility
@@ -220,7 +226,7 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
             {data.length === 0 ? (
               <tr>
                 <td
-                  colSpan="7"
+                  colSpan={7}
                   className="py-4 text-center text-[#4E5E5A] font-mulish"
                 >
                   Loading data...
@@ -231,37 +237,37 @@ const SKUDataTable = ({ title, selectedItems, onCheckboxChange }: any) => {
                 <tr
                   key={index}
                   className={`border-b border-[#F1F1F1] ${
-                    selectedItems[row.name] ? "bg-[#F7F7F7]" : "bg-white"
+                    selectedItems[row["name"]] ? "bg-[#F7F7F7]" : "bg-white"
                   }`}
                 >
                   <td className="py-4 px-3 flex items-center gap-2 border-r border-[#F1F1F1]">
                     <input
                       type="checkbox"
-                      checked={selectedItems[row.name] || false}
-                      onChange={() => onCheckboxChange(row.name)}
+                      checked={selectedItems[row["name"]] || false}
+                      onChange={() => onCheckboxChange(row["name"])}
                       className="w-4 h-4 rounded border-[#CDD1D0] text-[#027056] focus:ring-[#027056]"
                     />
                     <span className="text-[15px] text-[#0A090B] font-mulish font-semibold underline leading-[1.067] tracking-[-0.133%]">
-                      {row.name}
+                      {row["name"]}
                     </span>
                   </td>
                   <td className="py-4 px-4 text-center text-[14px] text-[#4E5E5A] font-mulish font-medium leading-[1.143] tracking-[-0.143%]">
-                    {row.sales}
+                    {row["sales"]}
                   </td>
                   <td className="py-4 px-4 text-center text-[14px] text-[#4E5E5A] font-mulish font-medium leading-[1.143] tracking-[-0.143%]">
-                    {row.outOfStock}
+                    {row["outOfStock"]}
                   </td>
                   <td className="py-4 px-4 text-center text-[14px] text-[#4E5E5A] font-mulish font-medium leading-[1.143] tracking-[-0.143%] border-r border-[#F1F1F1]">
-                    {row.totalInventory}
+                    {row["totalInventory"]}
                   </td>
                   <td className="py-4 px-4 text-center text-[14px] text-[#4E5E5A] font-mulish font-medium leading-[1.143] tracking-[-0.143%]">
-                    {row.avgRank}
+                    {row["avgRank"]}
                   </td>
                   <td className="py-4 px-4 text-center text-[14px] text-[#4E5E5A] font-mulish font-medium leading-[1.143] tracking-[-0.143%]">
-                    {row.estTraffic}
+                    {row["estTraffic"]}
                   </td>
                   <td className="py-4 px-4 text-center text-[14px] text-[#4E5E5A] font-mulish font-medium leading-[1.143] tracking-[-0.143%]">
-                    {row.estImpressions}
+                    {row["estImpressions"]}
                   </td>
                 </tr>
               ))

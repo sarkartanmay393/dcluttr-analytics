@@ -57,8 +57,8 @@ const SalesChart = ({ title = "Sales (MRP)" }) => {
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        position: "bottom",
-        align: "start",
+        // position: "bottom",
+        // align: "start",
         labels: {
           usePointStyle: true,
           pointStyle: 'dot',
