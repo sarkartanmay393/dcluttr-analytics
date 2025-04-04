@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/cn";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -62,7 +62,7 @@ export function BrandDropdown({
                 </span>
               </div>
               <span className="font-mulish text-sm font-semibold leading-[1.255] text-[#031B15]">
-                {currentBrand.name}
+                {currentBrand.name.slice(0, 10)}{currentBrand.name.length > 10 ? '...' : ''}
               </span>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { BrandDropdown } from "./BrandDropdown";
+import { ChevronLeft } from "lucide-react";
 
 interface NavigationProps {
   isCollapsed: boolean;
@@ -27,9 +28,9 @@ export const Navigation: React.FC<NavigationProps> = ({
   ];
 
   return (
-    <div className="flex items-center gap-4 border p-4">
+    <div className="flex items-center gap-4 p-2 h-[80px]">
       <div
-        className={`w-10 h-10 rounded-xl bg-[#E8E7E7] border-2 border-[#139C53] overflow-hidden 
+        className={`rounded-xl bg-[#E8E7E7] border-2 border-[#139C53] overflow-hidden 
         ${isCollapsed ? "hidden" : ""}`}
       >
         <Image
@@ -37,7 +38,9 @@ export const Navigation: React.FC<NavigationProps> = ({
           alt="Brand Logo"
           width={40}
           height={40}
-          className={`object-cover`}
+          priority
+          fetchPriority="high"
+          className={`object-cover w-[40px] h-[40px]`}
         />
       </div>
 
@@ -48,22 +51,18 @@ export const Navigation: React.FC<NavigationProps> = ({
 
       <button
         onClick={onCollapse}
-        className="flex items-center justify-center w-4 h-4 hover:bg-gray-100 rounded-full transition-colors"
+        className={`flex items-center justify-center ${
+          isCollapsed ? "ml-2" : ""
+        }`}
       >
         <div className="flex">
-          <Image
-            src="/images/chevrons-left-1.svg"
-            alt="Collapse"
-            width={16}
-            height={16}
+          <ChevronLeft
             className={`text-[#027056] ${isCollapsed ? "rotate-180" : ""}`}
           />
-          <Image
-            src="/images/chevrons-left-2.svg"
-            alt="Collapse"
-            width={16}
-            height={16}
-            className={`-ml-1 text-[#027056] ${isCollapsed ? "rotate-180" : ""}`}
+          <ChevronLeft
+            className={`-ml-4 text-[#027056] ${
+              isCollapsed ? "rotate-180" : ""
+            }`}
           />
         </div>
       </button>

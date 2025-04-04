@@ -1,0 +1,106 @@
+// sampleData.jsx
+export const skuLevelData = [
+    {
+        name: 'Protein Bar 100g',
+        sales: '₹93,132.12',
+        outOfStock: '1.68%',
+        totalInventory: 9319,
+        avgRank: 3.2,
+        estTraffic: 12303,
+        estImpressions: 25005,
+        ci: '1.5',
+    },
+    {
+        name: 'Choco Bar 100g',
+        sales: '₹8,526.32',
+        outOfStock: '6.79%',
+        totalInventory: 679,
+        avgRank: 7,
+        estTraffic: 3005,
+        estImpressions: 4231,
+        ci: '1.5',
+    },
+    {
+        name: 'SKU3',
+        sales: '₹7,012.72',
+        outOfStock: '3.28%',
+        totalInventory: 328,
+        avgRank: 4,
+        estTraffic: 2960,
+        estImpressions: 3657,
+        ci: '1.5',
+    },
+    {
+        name: 'SKU4',
+        sales: '₹0',
+        outOfStock: '0',
+        totalInventory: 0,
+        avgRank: 0,
+        estTraffic: 0,
+        estImpressions: 0,
+        ci: '0.0',
+    },
+];
+
+export const cityLevelData = [
+    {
+        name: 'Delhi',
+        sales: '₹50,000.00',
+        outOfStock: '2.5%',
+        totalInventory: 5000,
+        avgRank: 2.8,
+        estTraffic: 8000,
+        estImpressions: 15000,
+        ci: '1.2',
+    },
+    {
+        name: 'Bengaluru',
+        sales: '₹45,000.00',
+        outOfStock: '3.1%',
+        totalInventory: 4500,
+        avgRank: 3.5,
+        estTraffic: 7000,
+        estImpressions: 13000,
+        ci: '1.3',
+    },
+    {
+        name: 'SKU3',
+        sales: '₹7,012.72',
+        outOfStock: '3.28%',
+        totalInventory: 328,
+        avgRank: 4,
+        estTraffic: 2960,
+        estImpressions: 3657,
+        ci: '1.5',
+    },
+    {
+        name: 'SKU4',
+        sales: '₹0',
+        outOfStock: '0',
+        totalInventory: 0,
+        avgRank: 0,
+        estTraffic: 0,
+        estImpressions: 0,
+        ci: '0.0',
+    },
+];
+
+export const skuTotal = {
+    sales: '₹2,93,132.12',
+    outOfStock: '16%',
+    totalInventory: 2931,
+    avgRank: 8.3,
+    estTraffic: 61985,
+    estImpressions: 261768,
+    ci: '1.5',
+};
+
+export const cityTotal = {
+    sales: '₹1,02,012.72',
+    outOfStock: '8.88%',
+    totalInventory: 9828,
+    avgRank: 6.3,
+    estTraffic: 17960,
+    estImpressions: 31657,
+    ci: '1.3',
+};

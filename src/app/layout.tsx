@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { mulish } from "./fonts";
+import { Geist, Geist_Mono, Mulish } from "next/font/google";
 import "./globals.css";
+import { Sidebar } from "@/components/Sidebar";
+
+export const mulish = Mulish({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mulish',
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+}); 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${mulish.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${mulish.variable} antialiased overflow-hidden`}
       >
-        {children}
+        <div className="flex min-h-screen bg-white">
+          <Sidebar />
+          <div className="h-[100vh] flex-1 overflow-y-scroll">{children}</div>
+        </div>
       </body>
     </html>
   );

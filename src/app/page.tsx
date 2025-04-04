@@ -1,13 +1,7 @@
-'use client';
+"use client";
 
-import { Layout } from '@/components/Layout';
+import Dashboard from "@/components/Dashboard";
 
 export default function Home() {
-  return (
-    <Layout>
-      <div className="grid grid-cols-12 gap-4">
-        {/* Dashboard cards will be rendered here */}
-      </div>
-    </Layout>
-  );
+  return <Dashboard />;
 }
